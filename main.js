@@ -10,18 +10,27 @@ function showTime() {
 
 showTime();
 
-//---Tâches à effectuer : Tache du jour---
 // Je récupère les éléments du DOM
 const affichageTache = document.getElementById("tache-display");
 const tacheInput = document.getElementById("tache-input");
 const btnSauvegarder = document.getElementById("sauvegarder-btn");
-
-
-
-
-
-
 const affichageMeteo = document.getElementById("meteo-display");//Je récupère mon id dans une variable
+
+//---Tâches à effectuer : Tache du jour---
+
+if(localStorage.getItem("tacheDuJour") != null)//si la clé est different de null = si la clé existe
+  affichageTache.innerText = `${localStorage.getItem("tacheDuJour")}`;//je recupere la valeur avec getItem
+
+
+btnSauvegarder.addEventListener("click", ()=> {
+    localStorage.setItem("tacheDuJour", tacheInput.value);//j'enregistre une valeur dans une clé avec setItem
+});
+
+
+
+//---Tâches à effectuer : Météo du jour---
+
+
 function addMeteo(texte) {//Création d'une fonction pour insérer le texte json
     affichageMeteo.innerText = texte;
 }
