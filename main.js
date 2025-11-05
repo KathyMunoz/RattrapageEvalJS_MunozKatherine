@@ -18,10 +18,13 @@ const affichageMeteo = document.getElementById("meteo-display");//Je récupère 
 
 //---Tâches à effectuer : Tache du jour---
 
-if(localStorage.getItem("tacheDuJour") != null)//si la clé est different de null = si la clé existe
+
+
+if(localStorage.getItem("tacheDuJour") != null) {//si la clé est different de null = si la clé existe
   affichageTache.innerText = `${localStorage.getItem("tacheDuJour")}`;//je recupere la valeur avec getItem
-
-
+} else ( 
+  affichageTache.innerText = "La tache n'existe pas"
+)
 btnSauvegarder.addEventListener("click", ()=> {
     localStorage.setItem("tacheDuJour", tacheInput.value);//j'enregistre une valeur dans une clé avec setItem
 });
