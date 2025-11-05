@@ -50,3 +50,7 @@ function addMeteo(texte) {//Création d'une fonction pour insérer le texte json
       .catch(error =>{
           addMeteo("Erreur l\' api ne répond pas");
       })
+
+
+  
+ 
